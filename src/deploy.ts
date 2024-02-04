@@ -129,6 +129,8 @@ async function getStack(
 
     return stacks.Stacks?.[0]
   } catch (e) {
+    core.debug(String(e instanceof CloudFormationServiceException))
+    core.debug(String(e))
     if (e instanceof CloudFormationServiceException) {
       return undefined
     }
